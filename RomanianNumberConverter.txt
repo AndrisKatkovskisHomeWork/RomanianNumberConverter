@@ -1,0 +1,103 @@
+public class Main{
+
+    public static void main(String[] args) {
+
+        calculation(100);
+        calculation(1);
+        calculation(19);
+        calculation(49);
+        calculation(97);
+        calculation(103);
+        calculation(424);
+        calculation(429);
+        calculation(1080);
+        calculation(1800);
+        calculation(2222);
+
+    }
+
+    public static void calculation(int number) {
+
+        int temp = 0;
+        int temp2 = 0;
+
+        String resultM = ""; //1000
+        String resultD = "";//500
+        String resultC = ""; //100
+        String resultL = ""; //50
+        String resultX = ""; //10
+        String resultV = ""; //5
+        String resultI = ""; //1
+
+        System.out.print("Number\t" + number + " \tis = ");
+
+        if ((number / 1000) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 1000) / 1000);
+            for (int i = 0; i < temp2; i++) {
+                resultM += "M";
+            }
+            number = temp - temp2 * 1000;
+        }
+
+        if ((number / 500) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 500) / 500);
+            for (int i = 0; i < temp2; i++) {
+                resultD += "D";
+            }
+            number = temp - temp2 * 500;
+        }
+
+        if ((number / 100) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 100) / 100);
+            for (int i = 0; i < temp2; i++) {
+                resultC += "C";
+            }
+            number = temp - temp2 * 100;
+        }
+
+        if ((number / 50) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 50) / 50);
+            for (int i = 0; i < temp2; i++) {
+                resultL += "L";
+            }
+            number = temp - temp2 * 50;
+        }
+
+        if ((number / 10) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 10) / 10);
+            for (int i = 0; i < temp2; i++) {
+                resultX += "X";
+            }
+            number = temp - temp2 * 10;
+        }
+
+        if ((number / 1) == 9) {
+            resultI += "IX";
+            number = 0;
+        } else if ((number / 5) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 5) / 5);
+            for (int i = 0; i < temp2; i++) {
+                resultV += "V";
+            }
+            number = temp - temp2 * 5;
+        }
+
+        if ((number / 1) == 4) {
+            resultI += "IV";
+            number = 0;
+        } else if ((number / 1) >= 1) {
+            temp = number;
+            temp2 = ((number - number % 1) / 1);
+            for (int i = 0; i < temp2; i++) {
+                resultI += "I";
+            }
+        }
+        System.out.println(resultM + resultD + resultC + resultL + resultX + resultV + resultI);
+    }
+}
